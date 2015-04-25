@@ -40,5 +40,8 @@ Android Project will be built
 cordova run android
 ```
 
-You will get and android app running in the emulator/device containing a login page 
+You will get and android app running in the emulator/device containing a login page
+
+Something like this :
+![egc-login-page](https://github.com/zizoujab/egc-phonegap/blob/master/egc-phonegap.PNG)
 
