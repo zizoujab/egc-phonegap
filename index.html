@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>EGC</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+
+  <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+  <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+  <style type="text/css">
+  [data-role=page]{height: 100% !important; position:relative !important;}
+  [data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;} 
+  </style>
+  <script>
+    var userAgent = navigator.userAgent + '';
+    if (userAgent.indexOf('iPhone') > -1) {
+      document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+      var mobile_system = 'iphone';
+    } else if (userAgent.indexOf('Android') > -1) {
+      document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+      var mobile_system = 'android';
+    } else {
+      var mobile_system = '';
+    }
+  </script>
+  
+  <script src="js/lib/jquery.js"></script>
+  <!-- your scripts here -->
+  
+  <script src="js/app/app.js"></script>
+  <script src="js/app/bootstrap.js"></script>
+  <script src="js/lib/jquery.mobile.js"></script>
+  <script src="js/cordova.js"></script>
+  <script src="js/cordova_plugins.js"></script>
+  <script src="js/index.js"></script>
+  <script type="text/javascript">
+    function login (){
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        
+        $.ajax({
+          url: 'http://disycs.com/egc/login.php?username='+ username+'&password='+password,
+          success: function(response){
+            console.log(" our response is :"+response);
+            if ( response== 'OK'){
+              alert(' Welcome to EGC :)');
+            } else {
+              alert(' Try again ');
+            }
+
+          }
+
+        });
+
+        /*if ( username == 'zizoujab' && password == 'zizoujab'){
+            alert('Welcome to EGC');
+        } else {
+            alert('Wrong try again');
+        }*/
+    }
+
+  </script>
+  
+  </head>
+  <body>
+    
+    <div data-role="page">
+
+    	<div data-role="header">
+    		<h1>Welcome</h1>
+    	</div><!-- /header -->
+
+    	<div data-role="content">
+            <div style="text-align:center">	
+                <img class='logo' src="img/egc.jpg">
+            </div>
+    		<div data-role="fieldcontain">
+                <label for="name">username</label>
+                <input type="text" name="username" id="username" value=""  />
+                <label for="name">password</label>
+                <input type="password" name="passowrd" id="password" value=""  />
+            </div>
+            
+            <button onclick="login();"> login </button>
+    	</div><!-- /content -->
+
+    	<div data-role="footer">
+    		<h4>ENIS 2015</h4>
+    	</div><!-- /footer -->
+
+    </div><!-- /page -->
+    
+  </body>
+</html>
